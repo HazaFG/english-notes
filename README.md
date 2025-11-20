@@ -13,11 +13,6 @@ This project lets me quickly save new words along with their meaning, pronunciat
 - Words are displayed in clean cards  
 - Delete words easily  
 - Data is stored locally in the browser  
-- Clean UI and separated components (`Layout` + `Welcome`)
-
----
-
-## 🧱 Project Structure
 
 ---
 
