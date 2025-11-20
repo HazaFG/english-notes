@@ -1,46 +1,44 @@
-# Astro Starter Kit: Basics
+# 📘 English Vocabulary Notepad
 
-```sh
-npm create astro@latest -- --template basics
-```
+A simple vocabulary notepad built with **Astro 5**, designed to help me practice and learn new words on my journey to reach **B2 English level**.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This project lets me quickly save new words along with their meaning, pronunciation, and an example sentence. It stores everything locally (LocalStorage), and later I will connect it to a real database.
 
-## 🚀 Project Structure
+---
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🚀 Features
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+- Add new English words  
+- Save meaning, pronunciation, and example sentence  
+- Words are displayed in clean cards  
+- Delete words easily  
+- Data is stored locally in the browser  
+- Clean UI and separated components (`Layout` + `Welcome`)
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
+## 🧱 Project Structure
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 🛠 Tech Stack
 
-## 👀 Want to learn more?
+- **Astro 5**
+- HTML + CSS
+- LocalStorage (temporary storage)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+
+## 🎯 Purpose
+
+This tool helps me stay organized while learning new vocabulary to reach the **B2 English proficiency level**.  
+I can add words as I study and review them anytime.
+
+---
+
+## ▶️ How to Run
+
+Install dependencies:
+
+```bash
+npm install
