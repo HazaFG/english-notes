@@ -1,0 +1,103 @@
+<h1>English notes box</h1>
+
+<form id="wordForm">
+  <input id="palabra" placeholder="Palabra en inglés" required />
+  <input id="significado" placeholder="Significado" required />
+  <input id="pronunciacion" placeholder="Pronunciación (opcional)" />
+  <textarea id="frase" placeholder="Frase de ejemplo" rows="3"></textarea>
+  <button type="submit">Agregar palabra</button>
+</form>
+
+<h2>Mis palabras</h2>
+<div id="lista"></div>
+
+<style>
+  form {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  button {
+    padding: 12px;
+    background: #4c8bf5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    background: #276de3;
+  }
+
+  .word-card {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+
+  .word-card h3 {
+    margin: 0 0 5px;
+  }
+</style>
+
+<script>
+  const form = document.getElementById("wordForm");
+  const lista = document.getElementById("lista");
+
+  function cargarPalabras() {
+    const data = JSON.parse(localStorage.getItem("palabras_ingles")) || [];
+    lista.innerHTML = "";
+
+    data.forEach((item, i) => {
+      const card = document.createElement("div");
+      card.className = "word-card";
+      card.innerHTML = `
+        <h3>${item.palabra}</h3>
+        <p><strong>Significado:</strong> ${item.significado}</p>
+        ${item.pronunciacion ? `<p><strong>Pronunciación:</strong> ${item.pronunciacion}</p>` : ""}
+        ${item.frase ? `<p><strong>Frase:</strong> ${item.frase}</p>` : ""}
+        <button onclick="eliminar(${i})">Eliminar</button>
+      `;
+      lista.appendChild(card);
+    });
+  }
+
+  function eliminar(i) {
+    const data = JSON.parse(localStorage.getItem("palabras_ingles")) || [];
+    data.splice(i, 1);
+    localStorage.setItem("palabras_ingles", JSON.stringify(data));
+    cargarPalabras();
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const palabra = document.getElementById("palabra").value;
+    const significado = document.getElementById("significado").value;
+    const pronunciacion = document.getElementById("pronunciacion").value;
+    const frase = document.getElementById("frase").value;
+
+    const data = JSON.parse(localStorage.getItem("palabras_ingles")) || [];
+    data.push({ palabra, significado, pronunciacion, frase });
+    localStorage.setItem("palabras_ingles", JSON.stringify(data));
+
+    form.reset();
+    cargarPalabras();
+  });
+
+  cargarPalabras();
+</script>
